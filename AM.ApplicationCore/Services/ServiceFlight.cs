@@ -87,10 +87,23 @@ namespace AM.ApplicationCore.Services
                         select f;
             return query;
         }
-
         public IEnumerable<Flight> OrderedDurationFlightsWithLambda()
         {
-            throw new NotImplementedException();
+            return Flights.OrderByDescending(f=>(f.EstimatedDuration));
+        }
+
+        public IEnumerable<Traveller> SeniorTravellersWithLinq(Flight flight)
+        {
+            var query = from p in flight.Passengers.OfType<Traveller>() 
+                        orderby p.BirthDate
+                        select p;
+                        
+            return query.Take(3);
+        }
+
+        public IEnumerable<Traveller> SeniorTravellersWithLambda(Flight flight)
+        {
+            return flight.Passengers.OfType<Traveller>().OrderBy(f=>f.BirthDate).Take(3);
         }
     }
 }

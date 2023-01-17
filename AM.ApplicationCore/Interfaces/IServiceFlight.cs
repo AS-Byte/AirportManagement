@@ -18,5 +18,7 @@ namespace AM.ApplicationCore.Interfaces
         double DurationAverageWithLambda(string destination);
         IEnumerable<Flight> OrderedDurationFlightsWithLinq();
         IEnumerable<Flight> OrderedDurationFlightsWithLambda();
+        IEnumerable<Traveller> SeniorTravellersWithLinq(Flight flight);
+        IEnumerable<Traveller> SeniorTravellersWithLambda(Flight flight);
     }
 }
