@@ -79,7 +79,6 @@ namespace AM.ApplicationCore.Services
             return Flights.Where(f=>(f.Destination== destination))
                 .Average(f=>f.EstimatedDuration);   
         }
-
         public IEnumerable<Flight> OrderedDurationFlightsWithLinq()
         {
             var query = from f in Flights
@@ -91,7 +90,6 @@ namespace AM.ApplicationCore.Services
         {
             return Flights.OrderByDescending(f=>(f.EstimatedDuration));
         }
-
         public IEnumerable<Traveller> SeniorTravellersWithLinq(Flight flight)
         {
             var query = from p in flight.Passengers.OfType<Traveller>() 
@@ -100,7 +98,6 @@ namespace AM.ApplicationCore.Services
                         
             return query.Take(3);
         }
-
         public IEnumerable<Traveller> SeniorTravellersWithLambda(Flight flight)
         {
             return flight.Passengers.OfType<Traveller>().OrderBy(f=>f.BirthDate).Take(3);
