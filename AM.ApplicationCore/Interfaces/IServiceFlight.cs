@@ -10,8 +10,13 @@ namespace AM.ApplicationCore.Interfaces
     public interface IServiceFlight
     {
         IEnumerable<DateTime> GetFlightDates(string destination);
-        void ShowFlightDetails(Plane plane);
-
-        int ProgrammedFlightNumber(DateTime startDate);
+        void ShowFlightDetailsWithLinq(Plane plane);
+        void ShowFlightDetailsWithLambda(Plane plane);
+        int ProgrammedFlightNumberWithLinq(DateTime startDate);
+        int ProgrammedFlightNumberWithLambda(DateTime startDate);
+        double DurationAverageWithLinq(string destination);
+        double DurationAverageWithLambda(string destination);
+        IEnumerable<Flight> OrderedDurationFlightsWithLinq();
+        IEnumerable<Flight> OrderedDurationFlightsWithLambda();
     }
 }
