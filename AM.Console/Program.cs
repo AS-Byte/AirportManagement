@@ -3,12 +3,14 @@
 using AM.ApplicationCore.Domain;
 
 Console.WriteLine("Hello, World!");
-Plane p1= new Plane(100,new DateTime(12/12/2022),1);
-//initialiseur d'objets
+//Plane p1= new Plane(100,new DateTime(12/12/2022),1);
+
+//initialiseur d'objets, remplace les constructeurs paramétrés
 
 
 Plane p2 = new Plane
 {
     Capacity= 100,
-    ManufactureDate =new DateTime(12-12-2022)
+    ManufactureDate = DateTime.Now,
+    PlaneId=1000 
 };

@@ -12,5 +12,10 @@ namespace AM.ApplicationCore.Domain
         public float Salary { get; set; }
         public string Function { get; set; }
 
+        public override void PassengerType()
+        {
+            base.PassengerType();
+            Console.WriteLine("je suis staff");
+        }
     }
 }

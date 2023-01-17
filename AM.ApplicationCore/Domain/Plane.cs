@@ -8,16 +8,6 @@ namespace AM.ApplicationCore.Domain
 {
     public class Plane
     {
-        public Plane() {}
-
-     
-        //onstructeur paramétré
-        public Plane(int capacity, DateTime manufactureDate, int planeId)
-        {
-            Capacity = capacity;
-            ManufactureDate = manufactureDate;
-            PlaneId = planeId;
-        }
         #region exemple 
         //    string nom;
 
