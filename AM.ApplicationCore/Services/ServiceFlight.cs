@@ -102,5 +102,34 @@ namespace AM.ApplicationCore.Services
         {
             return flight.Passengers.OfType<Traveller>().OrderBy(f=>f.BirthDate).Take(3);
         }
+        public IEnumerable<IGrouping<string,Flight>> DestinationGroupedFlightsWithLinq()
+        {
+            var query = from f in Flights
+                        group f by f.Destination;
+            foreach (var f in query)
+            {
+                Console.WriteLine(f.Key);
+                foreach (var d in f)
+                {
+                    Console.WriteLine(d.FlightDate);
+                }
+            }
+            return query;
+
+
+        }
+        public IEnumerable<IGrouping<string, Flight>> DestinationGroupedFlightsWithLmbda()
+        {
+            var Lambda = Flights.GroupBy(f => f.Destination);
+            foreach (var f in Lambda)
+            {
+                Console.WriteLine(f.Key);
+                foreach (var d in f)
+                {
+                    Console.WriteLine(d.FlightDate);
+                }
+            }
+            return Lambda ;
+        }
     }
 }

@@ -8,7 +8,7 @@ namespace AM.ApplicationCore.Domain
 {
     public class Staff:Passenger
     {
-        public DateTime EmploymentDate { get; set; }
+        public DateTime EmployementDate { get; set; }
         public float Salary { get; set; }
         public string Function { get; set; }
 

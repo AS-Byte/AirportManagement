@@ -20,5 +20,7 @@ namespace AM.ApplicationCore.Interfaces
         IEnumerable<Flight> OrderedDurationFlightsWithLambda();
         IEnumerable<Traveller> SeniorTravellersWithLinq(Flight flight);
         IEnumerable<Traveller> SeniorTravellersWithLambda(Flight flight);
+        IEnumerable<IGrouping<string,Flight>> DestinationGroupedFlightsWithLinq();
+        IEnumerable<IGrouping<string,Flight>> DestinationGroupedFlightsWithLmbda();
     }
 }
