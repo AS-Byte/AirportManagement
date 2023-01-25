@@ -21,5 +21,7 @@ namespace AM.ApplicationCore.Domain
 
         public ICollection<Passenger> Passengers { get; set; }
 
+        public string AirlineLogo { get; set; }
+
     }
 }

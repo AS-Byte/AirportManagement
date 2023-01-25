@@ -1,7 +1,6 @@
 ﻿
 using AM.ApplicationCore.Domain;
 using Microsoft.EntityFrameworkCore; //ORM: équivalent de hibernate en java
-
 namespace AM.Infrastructure
 {
     public class AMContext:DbContext //Classe générique qui offres des méthodes permettant de configurer l'ORM
