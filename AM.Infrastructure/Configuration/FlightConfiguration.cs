@@ -19,7 +19,7 @@ namespace AM.Infrastructure.Configuration
             //Renommer la clé étrangère de la relation one-to-many entre la classe Flight et la classe Plane
             builder.HasOne(p => p.Plane)
                 .WithMany(p => p.Flights);
-              //  .HasForeignKey(p => p.Planefk);// renommer le clé étran 
+              //  .HasForeignKey(p => p.Planefk);// Une deuxième méthode pour renommer le clé étrangère
 
         }
     }

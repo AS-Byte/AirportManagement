@@ -16,7 +16,6 @@ namespace AM.Infrastructure.Configuration
             builder.HasKey(p => p.PlaneId);
             builder.ToTable("MyPlanes");
             builder.Property(p => p.Capacity).HasColumnName("PlaneCapacity");
-            throw new NotImplementedException();
         }
     }
 }

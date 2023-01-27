@@ -1,5 +1,6 @@
 ﻿
 using AM.ApplicationCore.Domain;
+using AM.Infrastructure.Configuration;
 using Microsoft.EntityFrameworkCore; //ORM: équivalent de hibernate en java
 namespace AM.Infrastructure
 {
@@ -18,6 +19,13 @@ namespace AM.Infrastructure
                 Initial Catalog=AirportManagement;
                 Integrated Security=true;MultipleActiveResultSets=true"
                 );
+        }
+
+        //Classes de configuration définies avec Fluent API
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new PlaneConfiguration());
+            modelBuilder.ApplyConfiguration(new FlightConfiguration());
         }
     }
 }
