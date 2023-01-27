@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,14 @@ namespace AM.ApplicationCore.Domain
 {
     public class Plane
     {
+        public int PlaneId { get; set; }
+        [Range(0, int.MaxValue)]
+        public int Capacity { get; set; }
+        public DateTime ManufactureDate { get; set; }
+
+
+        public PlaneType PlaneType { get; set; }
+        public ICollection<Flight> Flights { get; set; }
         #region exemple 
         //    string nom;
 
@@ -29,12 +38,8 @@ namespace AM.ApplicationCore.Domain
         //    //propg+2tab: secure version, setter private
         //    public int Salary { get; private set; }
         #endregion
-        public int Capacity { get; set; }
-        public DateTime ManufactureDate { get; set; }
-        public int PlaneId { get; set; }
 
-        public PlaneType PlaneType { get; set; }
-        public ICollection<Flight> Flights { get; set; }
+
 
 
         //
