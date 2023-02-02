@@ -26,6 +26,16 @@ namespace AM.Infrastructure
         {
             modelBuilder.ApplyConfiguration(new PlaneConfiguration());
             modelBuilder.ApplyConfiguration(new FlightConfiguration());
+
+            // Ce qui suit remplace la création d'une classe config dans le dossier configuration
+            modelBuilder.Entity<Passenger>().OwnsOne(p => p.Fullname, full =>
+            {
+
+                full.Property(f => f.FirstName).HasMaxLength(30).HasColumnName("Passfirstname");
+                full.Property(f => f.LastName).HasColumnName("Passlastname").IsRequired();
+            });
+           
+
         }
     }
 }

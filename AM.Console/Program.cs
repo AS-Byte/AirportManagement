@@ -17,21 +17,25 @@ Plane p2 = new Plane
 
 Passenger p1 = new Passenger
 {
-    FirstName = "Testp",
-    LastName = "Testp",
+    Fullname=new Fullname{
+        FirstName = "Testp",
+        LastName = "Testp"
+    },
     EmailAddress = "testp@gmail.com"
 };
 
 Staff s1 = new Staff
 {
-    FirstName = "Tests",
-    LastName = "Tests",
+    Fullname = new Fullname
+    {
+        FirstName = "Tests",
+        LastName = "Tests"
+    },
     EmailAddress = "staff@gmail.com"
 };
 Traveller t1 = new Traveller
 {
-    FirstName = "TestT",
-    LastName = "TestT",
+    Fullname = new Fullname { FirstName = "TestT", LastName = "TestT" },
     EmailAddress = "traveller@gmail.com"
 };
 
@@ -41,4 +45,3 @@ Console.WriteLine(p1.CheckProfile("m", "m","pass@gmail.com"));
 p1.PassengerType();
 t1.PassengerType();
 s1.PassengerType();
-

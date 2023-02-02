@@ -12,9 +12,7 @@ namespace AM.ApplicationCore.Domain
     {
         [Key, StringLength(7)]
         public string PassportNumber { get; set; }
-        [MinLength(3,ErrorMessage ="minimum 3"), MaxLength(25)]
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public Fullname Fullname { get; set; }
 
         [DataType(DataType.Date), DisplayName("Date of Birth")]
         public DateTime BirthDate { get; set; }
@@ -32,7 +30,7 @@ namespace AM.ApplicationCore.Domain
         //polymorphisme par signature
         public bool CheckProfile(string firstName, string lastName)
         {
-            return FirstName.Equals(firstName) && LastName.Equals(lastName);
+            return Fullname.FirstName.Equals(firstName) && Fullname.LastName.Equals(lastName);
         }
         public bool CheckProfile(string firstName, string lastName,string email)
         {
