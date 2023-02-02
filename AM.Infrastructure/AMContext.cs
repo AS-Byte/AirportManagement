@@ -21,7 +21,7 @@ namespace AM.Infrastructure
                 );
         }
 
-        //Classes de configuration définies avec Fluent API
+        //Classes de configuration définies avec Fluent API, le code ci dessous va assurer la prise en compte des modifs 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new PlaneConfiguration());
