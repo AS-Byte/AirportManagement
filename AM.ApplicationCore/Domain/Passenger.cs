@@ -49,5 +49,7 @@ namespace AM.ApplicationCore.Domain
         {
             Console.WriteLine("I am Passenger");
         }
+
+        public ICollection<ReservationTicket> Reservations;
     }
 }
