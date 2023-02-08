@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Services
 {
-    public class Service<T> : IService<T> where T : class
+    public class Service<T> : IService<T> where T : class //<T> type generique équivalent de Any
     {
 
         private IGenericRepository<T> _repository;

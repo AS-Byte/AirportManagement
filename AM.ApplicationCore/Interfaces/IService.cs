@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Interfaces
 {
-    public interface IService<T> where T : class
+    public interface IService<T> where T : class //equivalent de crud repo
     {
         void Add(T entity);
         void Update(T entity);

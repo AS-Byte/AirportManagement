@@ -24,11 +24,10 @@ namespace AM.ApplicationCore.Domain
         [ForeignKey("Plane")] //changement du nom de la colonne de la foreign key dans la base
         public int Planefk { get; set; }
         //l'annotation [Key] permet de défnir une clé primaire
-        public Plane Plane { get; set; }
+        public virtual Plane Plane { get; set; } // on ajouter virtual devant chaque propriété de navigation
 
         public ICollection<Passenger> Passengers { get; set; }
 
         public string AirlineLogo { get; set; }
-
     }
 }
