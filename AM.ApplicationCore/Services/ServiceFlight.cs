@@ -9,8 +9,13 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Services
 {
-    public class ServiceFlight : IServiceFlight
+    public class ServiceFlight :Service<Flight>, IServiceFlight
     {
+        public ServiceFlight(IUnitOfWork unitOfWork) : base(unitOfWork)
+        {
+        }
+
+
         //var globale
         public IList<Flight> Flights { get; set; } = new List<Flight>();
         public IEnumerable<DateTime> GetFlightDates(string destination)

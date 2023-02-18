@@ -15,3 +15,4 @@ namespace AM.ApplicationCore.Interfaces
         public void DeletePlanes();
     }
 }
+      

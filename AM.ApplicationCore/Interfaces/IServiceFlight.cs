@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Interfaces
 {
-    public interface IServiceFlight
+    public interface IServiceFlight:IService<Flight>
     {
         IEnumerable<DateTime> GetFlightDates(string destination);
         void ShowFlightDetailsWithLinq(Plane plane);

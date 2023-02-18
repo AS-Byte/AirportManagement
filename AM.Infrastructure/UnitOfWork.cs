@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AM.Infrastructure
 {
-    public class UnitOfWork
+    public class UnitOfWork:IUnitOfWork
     {
         private readonly DbContext _context;
         private readonly Type repositoryType;
