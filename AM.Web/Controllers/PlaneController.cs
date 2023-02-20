@@ -3,53 +3,43 @@ using AM.ApplicationCore.Interfaces;
 using AM.ApplicationCore.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.Text;
 
 namespace AM.Web.Controllers
 {
-    public class FlightController : Controller
+    public class PlaneController : Controller
     {
-        
-        IServiceFlight isf;
-
         IServicePlane isp;
-        //ci dessous une injection par conctructeur
-        public FlightController(IServiceFlight isf, IServicePlane isp)
+
+        public PlaneController(IServicePlane isp)
+        { this.isp = isp; }
+
+        // GET: PlaneController
+        public ActionResult Index()
         {
-            this.isf = isf;
-            this.isp = isp;
+            return View(isp.GetAll());
         }
 
-        // GET: FlightController
-        public ActionResult Index() //attends tjrs un retour de type iterable
-        {
-            return View(isf.GetAll()); //cette methode permet de retourner la liste des vols, getAll a été heritée depuis le service generique service.cs, via l'instance isf dans program.cs
-        }
-
-        // GET: FlightController/Details/5
+        // GET: PlaneController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: FlightController/Create
+        // GET: PlaneController/Create
         public ActionResult Create()
         {
-            //recuperation de la liste des plane, nous avons injecte l'interface Sce plane en haut pour pouvoir appeler la methode getall plane
-            ViewBag.PlaneList = new SelectList(isp.GetAll(), "PlaneId","Capacity");
             return View();
         }
 
-        // POST: FlightController/Create
+        // POST: PlaneController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Flight f)
+        public ActionResult Create(Plane plane)
         {
             try
             {
-                isf.Add(f);
-                isf.Commit();
+                isp.Add(plane);
+                isp.Commit();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -58,13 +48,13 @@ namespace AM.Web.Controllers
             }
         }
 
-        // GET: FlightController/Edit/5
+        // GET: PlaneController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: FlightController/Edit/5
+        // POST: PlaneController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -79,19 +69,21 @@ namespace AM.Web.Controllers
             }
         }
 
-        // GET: FlightController/Delete/5
+        // GET: PlaneController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: FlightController/Delete/5
+        // POST: PlaneController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, Plane plane)
         {
             try
             {
+                isp.Delete(plane);
+                isp.Commit();
                 return RedirectToAction(nameof(Index));
             }
             catch

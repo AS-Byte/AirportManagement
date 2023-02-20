@@ -4,7 +4,7 @@ using AM.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-//Creation des instances
+//Creation des instances pour le projet web
 
     // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -13,8 +13,13 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>(); //Commit pour persistance
 builder.Services.AddScoped<Type>(t => typeof(GenericRepository<>));// methodes crud
 builder.Services.AddDbContext<DbContext, AMContext>();//connexion à la base
 
-builder.Services.AddScoped<IServiceFlight, ServiceFlight>(); // creation d'une instance: IService flight x=new services flight()
 
+builder.Services.AddScoped<IServiceFlight, ServiceFlight>(); // creation d'une instance: IService flight x=new services flight()
+builder.Services.AddScoped<IServicePlane, ServicePlane>(); // creation d'une instance: IService plane x=new services plane()
+
+
+
+//Le bloc de code suivant est automatiquement généré
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
